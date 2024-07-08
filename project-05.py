@@ -64,7 +64,7 @@ while True:
 
     if op.lower() == "+":
         n1 += n2
-        print(f"EL resultado es {n1}")
+        print(f"El resultado es {n1}")
 
         break
 
