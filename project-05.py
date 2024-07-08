@@ -33,6 +33,7 @@ while True:
 
             print(f"The result is: {math.sqrt(sqrt)}")
         continue
+
     try:
         n1 = int(number)
 
@@ -81,13 +82,15 @@ while True:
 
     elif op.lower() == "/":
 
-        if n1 or n2 == 0:
+        if n2 == 0:
             print("Invalid value, please insert a number greater than zero")
             break
-
+        elif n1 == 0:
+            print("Invalid value, please insert a number greater than zero")
+            break
         else:
             n1 /= n2
-            print("The result is: {n1}")
+            print(f"The result is: {n1}")
             break
 
     elif op.lower() == "^":
