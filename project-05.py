@@ -1,15 +1,15 @@
-"""Calculadora mas avanzada Proyecto"""
+"""Calculator"""
 
 import math
 
-# Una calculadora en la cual se ingresen 1 valor luego la operacion, y luego otro valor
+# In this calculator you insert one value and then an operation, after that you have to choose another one value
 
-print("Bienvenidos, a la calculadora, las operaciones son; resta( - ), suma( + ), multiplicacion( * ), y division( / )")
+print("Welcome, to calculate your operation please insert 2 values and an operation like; subtraction( - ), addition( + ), multiplication( * ), y division( / )")
 
 
-def bajar_a_entero(resultado):
-    if resultado.is_integer():
-        return int(resultado)
+def low_to_integer(result):
+    if result.is_integer():
+        return int(result)
 
 
 n1 = ""
@@ -18,39 +18,40 @@ while True:
 
     if not n1:
 
-        numero = input(
-            "Ingrese un numero o si desea la raiz cuadra, ingrese raiz: ")
+        number = input(
+            "Enter an integer number, if you want square root please enter square: ")
 
-    if numero.lower() == "salir":
+    if number.lower() == "exit":
 
         break
-    elif numero.lower() == "raiz":
 
-        raizc = int(input("Ingrese un numero: "))
+    elif number.lower() == "square":
 
-        if raizc > 0:
+        sqrt = int(input("Enter a number: "))
 
-            print(f"Su resultado es: {math.sqrt(raizc)}")
+        if sqrt > 0:
+
+            print(f"The result is: {math.sqrt(sqrt)}")
         continue
     try:
-        n1 = int(numero)
+        n1 = int(number)
 
     except ValueError:
-        print("Error, ingrese un valor valido, enteros")
+        print("Error, please insert an integer number, or a float")
         continue
 
-    op = input("Ingrese un signo de operacion: ")
+    op = input("Insert an symbol operation: ")
 
-    if op.lower() == "salir":
+    if op.lower() == "exit":
         break
 
     if op not in ['*', '-', '+', '/', '^']:
-        print("Invalido, ponga una operacion valida")
+        print("Invalid, please insert an valid operation")
         continue
 
-    n2 = input("Ingresa el siguiente numero: ")
+    n2 = input("Enter the next integer number: ")
 
-    if n2.lower() == "salir":
+    if n2.lower() == "exit":
 
         break
 
@@ -58,35 +59,42 @@ while True:
         n2 = int(n2)
 
     except ValueError:
-        print("Error, Ingrese un valor valido, enteros")
+        print("Error, insert an integer number or a float")
 
         continue
 
     if op.lower() == "+":
         n1 += n2
-        print(f"El resultado es {n1}")
+        print(f"The result is: {n1}")
 
         break
 
     elif op.lower() == "*":
         n1 *= n2
-        print(f"El resultado es: {n1}")
+        print(f"The result is: {n1}")
         break
+
     elif op.lower() == "-":
         n1 -= n2
-        print(f"Su resultado es: {n1}")
+        print(f"The result is: {n1}")
         break
 
     elif op.lower() == "/":
-        n1 /= n2
-        print(f"Su resultado es: {n1}")
-        break
+
+        if n1 or n2 == 0:
+            print("Invalid value, please insert a number greater than zero")
+            break
+
+        else:
+            n1 /= n2
+            print("The result is: {n1}")
+            break
 
     elif op.lower() == "^":
-        resultado = math.pow(n1, n2)
-        print(f"Su resultado es:  {bajar_a_entero(resultado)}")
+        result = math.pow(n1, n2)
+        print(f"The result is:  {low_to_integer(result)}")
         break
 
     else:
-        print("Valor incorrecto, ingrese lo requerido")
+        print("Unknown character, please insert a number")
         continue
